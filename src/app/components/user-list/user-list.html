@@ -1,0 +1,51 @@
+<div class="user-list-container">
+  <div class="header">
+    <h1>Rules Engine - User Management</h1>
+    <p>Proof of Concept for Custom UI Components</p>
+  </div>
+
+  <div class="debug-info">
+    <p>Component loaded. Users count: {{ users.length }}</p>
+  </div>
+
+  <div class="user-table-wrapper">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; trackBy: trackByUserId" class="user-row">
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>
+            <button 
+              class="btn-details" 
+              (click)="showUserDetails(user)"
+              title="View User Details">
+              View Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="users.length === 0" class="no-data">
+      <p>No users found. Loading...</p>
+    </div>
+  </div>
+
+  <!-- Popup Dialog Component -->
+  <app-popup-dialog 
+    [isVisible]="isPopupVisible"
+    [user]="selectedUser"
+    (close)="closePopup()">
+  </app-popup-dialog>
+</div>

@@ -1,0 +1,29 @@
+<div class="popup-overlay" *ngIf="isVisible" (click)="onBackdropClick($event)">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h2>User Details</h2>
+      <button class="close-btn" (click)="onClose()">&times;</button>
+    </div>
+    <div class="popup-body" *ngIf="user">
+      <div class="user-detail">
+        <label>First Name:</label>
+        <span>{{ user.firstName }}</span>
+      </div>
+      <div class="user-detail">
+        <label>Last Name:</label>
+        <span>{{ user.lastName }}</span>
+      </div>
+      <div class="user-detail">
+        <label>Email:</label>
+        <span>{{ user.email }}</span>
+      </div>
+      <div class="user-detail">
+        <label>Phone:</label>
+        <span>{{ user.phone }}</span>
+      </div>
+    </div>
+    <div class="popup-footer">
+      <button class="btn-primary" (click)="onClose()">Close</button>
+    </div>
+  </div>
+</div>

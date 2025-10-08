@@ -1,0 +1,27 @@
+{
+  "name": "popup-dialog-library",
+  "version": "1.0.0",
+  "description": "A reusable Angular popup dialog component library for rules engine UI",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "ng build popup-dialog-library",
+    "test": "ng test popup-dialog-library"
+  },
+  "keywords": [
+    "angular",
+    "popup",
+    "dialog",
+    "modal",
+    "component",
+    "library",
+    "rules-engine"
+  ],
+  "author": "Rules Engine Team",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

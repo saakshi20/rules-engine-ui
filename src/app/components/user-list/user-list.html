@@ -1,11 +1,30 @@
+
 <div class="user-list-container">
-  <div class="header">
-    <h1>Rules Engine - User Management</h1>
-    <p>Proof of Concept for Custom UI Components</p>
+
+  <!-- Controls Section -->
+  <div class="controls-section">
+    <div class="controls-left">
+      <button class="btn-add-user" (click)="showAddUserForm()">
+        <span class="add-icon">+</span>
+        Add New User
+      </button>
+    </div>
+    
+    <div class="controls-right">
+      <button class="btn-toggle" (click)="onInsertModeChange(insertDisplayMode === 'popup' ? 'inline' : 'popup')">
+        {{ insertDisplayMode === 'popup' ? 'Show Inline Form' : 'Show Popup Form' }}
+      </button>
+    </div>
   </div>
 
-  <div class="debug-info">
-    <p>Component loaded. Users count: {{ users.length }}</p>
+  <!-- Inline Insert Form (shown when inline mode is selected) -->
+  <div *ngIf="showInsertForm && insertDisplayMode === 'inline'" class="inline-form-section">
+    <app-insert-form
+      [displayMode]="'inline'"
+      [isVisible]="showInsertForm"
+      (onInsert)="onUserInsert($event)"
+      (onClose)="closeInsertForm()">
+    </app-insert-form>
   </div>
 
   <div class="user-table-wrapper">
@@ -48,4 +67,13 @@
     [user]="selectedUser"
     (close)="closePopup()">
   </app-popup-dialog>
+
+  <!-- Popup Insert Form (shown when popup mode is selected) -->
+  <app-insert-form
+    *ngIf="showInsertForm && insertDisplayMode === 'popup'"
+    [displayMode]="'popup'"
+    [isVisible]="showInsertForm"
+    (onInsert)="onUserInsert($event)"
+    (onClose)="closeInsertForm()">
+  </app-insert-form>
 </div>

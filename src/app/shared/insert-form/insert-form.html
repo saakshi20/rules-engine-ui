@@ -1,0 +1,80 @@
+<div class="insert-form-container" [class.popup-mode]="displayMode === 'popup'" [class.inline-mode]="displayMode === 'inline'">
+  <!-- Popup Overlay (only in popup mode) -->
+  <div *ngIf="displayMode === 'popup'" class="popup-overlay" (click)="onCancel()"></div>
+  
+  <!-- Form Content -->
+  <div class="form-content" [class.popup-content]="displayMode === 'popup'" [class.inline-content]="displayMode === 'inline'">
+    <!-- Header -->
+    <div class="form-header">
+      <h2>{{ title || 'Add New User' }}</h2>
+      <button *ngIf="displayMode === 'popup'" class="close-btn" (click)="onCancel()" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="insertForm" (ngSubmit)="onSubmit()" class="insert-form">
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName" class="form-label">First Name *</label>
+        <input
+          id="firstName"
+          type="text"
+          formControlName="firstName"
+          class="form-input"
+          [class.error]="isFieldInvalid('firstName')"
+          placeholder="Enter first name"
+        />
+        <div *ngIf="isFieldInvalid('firstName')" class="error-message">
+          {{ getFieldError('firstName') }}
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName" class="form-label">Last Name *</label>
+        <input
+          id="lastName"
+          type="text"
+          formControlName="lastName"
+          class="form-input"
+          [class.error]="isFieldInvalid('lastName')"
+          placeholder="Enter last name"
+        />
+        <div *ngIf="isFieldInvalid('lastName')" class="error-message">
+          {{ getFieldError('lastName') }}
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email *</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="form-input"
+          [class.error]="isFieldInvalid('email')"
+          placeholder="Enter email address"
+        />
+        <div *ngIf="isFieldInvalid('email')" class="error-message">
+          {{ getFieldError('email') }}
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone" class="form-label">Phone *</label>
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          class="form-input"
+          [class.error]="isFieldInvalid('phone')"
+          placeholder="Enter phone number"
+        />
+        <div *ngIf="isFieldInvalid('phone')" class="error-message">
+          {{ getFieldError('phone') }}
+        </div>
+      </div>
+

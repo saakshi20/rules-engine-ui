@@ -1,3 +1,41 @@
+/* Modern Add New User and Toggle Button Styles */
+.controls-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.btn-add-user, .btn-toggle {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+}
+
+.btn-add-user:hover, .btn-toggle:hover {
+  background: linear-gradient(90deg, #5a67d8 0%, #6b46c1 100%);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-add-user:active, .btn-toggle:active {
+  background: linear-gradient(90deg, #4c51bf 0%, #553c9a 100%);
+  transform: scale(0.98);
+}
+
+.btn-add-user .add-icon {
+  font-size: 1.2em;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 .user-list-container {
   padding: 20px;
   max-width: 1200px;

@@ -1,0 +1,29 @@
+{
+  "name": "insert-form-library",
+  "version": "1.0.0",
+  "description": "A reusable Angular library for insert functionality with popup and inline display modes",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "angular",
+    "form",
+    "popup",
+    "insert",
+    "library"
+  ],
+  "author": "Rules Engine Team",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

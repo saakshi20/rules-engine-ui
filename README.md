@@ -1,184 +1,187 @@
 # Rules Engine UI - Proof of Concept
 
-> A modern Angular-based user interface for rules engine applications, featuring reusable components and professional design.
+## Overview
 
-![Angular](https://img.shields.io/badge/Angular-18-red)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
-![Status](https://img.shields.io/badge/Status-Active-green)
+This is a proof of concept for a custom user interface using Angular to validate the feasibility of the proposed UI design and architecture for a rules engine workflow. The application demonstrates key UI interactions relevant to rules engine management through a user list interface with popup dialogs.
 
-## 🎯 Overview
+## Features Implemented
 
-This project demonstrates a proof of concept for a custom user interface using Angular to validate the feasibility of proposed UI design and architecture for rules engine workflows. The application showcases key UI interactions through a user management interface with popup dialogs.
+### 1. User Management Interface
+- **User List Display**: Shows a table with user information including:
+  - First Name
+  - Last Name
+  - Email
+  - Phone Number
+- **Responsive Design**: Mobile-friendly layout that adapts to different screen sizes
+- **Modern Styling**: Professional appearance with gradients, shadows, and hover effects
 
-## 🏗️ Project Structure
+### 2. Popup Dialog Component (Shared Library)
+- **Reusable Component**: Built as a shared component that can be used throughout the application
+- **Modal Interface**: Displays detailed user information in an overlay
+- **User Interaction**: 
+  - Click outside to close
+  - Close button functionality
+  - Keyboard accessibility
+- **Dynamic Content**: Displays user details passed as input properties
 
-```
-rules-engine-ui/
-├── 📂 popup-dialog-library/          # Reusable popup component library
-│   ├── 📄 README.md                  # Library documentation
-│   ├── 📄 package.json               # Library configuration
-│   └── 📂 src/lib/                   # Library source code
-│
-├── 📂 rules-engine-ui/               # Main Angular application
-│   ├── 📂 src/app/
-│   │   ├── 📂 components/            # Feature components
-│   │   ├── 📂 shared/                # Shared components
-│   │   ├── 📂 models/                # TypeScript interfaces
-│   │   └── 📂 services/              # Data services
-│   └── 📄 package.json               # App dependencies
-│
-├── 📄 README.md                      # This file
-└── 📄 .gitignore                     # Git ignore rules
-```
+### 3. Mock Data Service
+- **User Service**: Provides mock data for development and testing
+- **Observable Pattern**: Uses RxJS Observables for data management
+- **Scalable Architecture**: Designed to easily integrate with real APIs
 
-## ✨ Features
-
-### 🎨 User Interface
-- **Modern Design**: Professional styling with gradients and animations
-- **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
-- **Interactive Elements**: Hover effects, smooth transitions, and visual feedback
-
-### 📊 Data Management
-- **User List Display**: Clean table format showing user information
-- **Mock Data Service**: Realistic sample data for development
+### 4. Component Architecture
+- **Modular Design**: Components are organized in logical folders
+- **Separation of Concerns**: Each component has specific responsibilities
 - **Type Safety**: Full TypeScript implementation with interfaces
+- **Angular Best Practices**: Follows Angular style guide and conventions
 
-### 🔧 Popup Dialog Library
-- **Reusable Component**: Standalone library for use across projects
-- **Multiple Close Options**: Click outside, close button, or ESC key
-- **Professional Modal**: Clean design with header, body, and footer sections
+## Project Structure
 
-### 🏛️ Architecture
-- **Component-Based**: Modular Angular components
-- **Service Pattern**: Separation of data logic and UI components
-- **Modern Angular**: Uses latest Angular 18 features and standalone components
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── user-list/          # Main user list component
+│   ├── shared/
+│   │   └── popup-dialog/       # Reusable popup dialog component
+│   ├── models/
+│   │   └── user.ts             # User interface/model
+│   ├── services/
+│   │   └── user.service.ts     # User data service
+│   ├── app.component.*         # Root component
+│   └── app.config.ts           # App configuration
+└── styles.css                  # Global styles
+```
 
-## 🚀 Quick Start
+## Key UI Interactions
 
-### Prerequisites
-- Node.js 18+ 
-- Angular CLI 18+
-- Git
+### 1. User List View
+- Displays users in a clean, organized table format
+- Hover effects for better user experience
+- "View Details" button for each user
 
-### Installation
+### 2. Popup Dialog Interaction
+- Click "View Details" button to open popup
+- View complete user information in modal
+- Close dialog by clicking close button or outside the modal
+- Smooth animations and transitions
 
-1. **Clone the repository**
+### 3. Responsive Behavior
+- Table adapts to smaller screens
+- Mobile-optimized popup dialogs
+- Touch-friendly interface elements
+
+## Technologies Used
+
+- **Angular 18**: Modern Angular framework with standalone components
+- **TypeScript**: For type safety and better development experience
+- **RxJS**: For reactive programming and data management
+- **CSS3**: Modern styling with flexbox and grid layouts
+- **HTML5**: Semantic markup for accessibility
+
+## Running the Application
+
+1. **Install Dependencies**:
    ```bash
-   git clone https://github.com/saakshi20/rules-engine-ui.git
-   cd rules-engine-ui
-   ```
-
-2. **Install dependencies**
-   ```bash
-   cd rules-engine-ui
    npm install
    ```
 
-3. **Start development server**
+2. **Start Development Server**:
    ```bash
-   ng serve --open
+   ng serve
    ```
 
-4. **Open browser**
+3. **Open Browser**:
    Navigate to `http://localhost:4200/`
 
-## 💡 Usage
+## Development Workflow
 
-### User List Interface
-1. View the user management table with sample data
-2. Click "View Details" button for any user
-3. Popup dialog displays complete user information
-4. Close dialog using X button, Close button, or click outside
+1. The application loads with mock user data
+2. Users are displayed in a responsive table format
+3. Clicking "View Details" opens a popup with complete user information
+4. The popup can be closed by clicking the close button or clicking outside
+5. All interactions are smooth and provide visual feedback
 
-### Using the Popup Library
-```typescript
-import { PopupDialogComponent, User } from 'popup-dialog-library';
+## Validation Results
 
-@Component({
-  selector: 'app-example',
-  imports: [PopupDialogComponent],
-  template: `
-    <lib-popup-dialog 
-      [isVisible]="showDialog"
-      [user]="selectedUser"
-      (close)="closeDialog()">
-    </lib-popup-dialog>
-  `
-})
-export class ExampleComponent {
-  // Implementation
-}
-```
+✅ **Component Architecture**: Successfully implemented modular components
+✅ **Shared Library**: Popup dialog component is reusable across the application
+✅ **Data Integration**: Mock data service demonstrates API integration patterns
+✅ **UI Interactions**: All key interactions work as expected
+✅ **Responsive Design**: Interface adapts to different screen sizes
+✅ **Professional Styling**: Modern, clean appearance suitable for enterprise use
 
-## 🛠️ Development
+## Future Enhancements
 
-### Code Structure
-- **Components**: Feature-specific UI components
-- **Services**: Data management and business logic
-- **Models**: TypeScript interfaces for type safety
-- **Shared**: Reusable components and utilities
+- Integration with real backend APIs
+- Form components for data entry
+- Advanced filtering and sorting
+- Pagination for large datasets
+- Advanced animation effects
+- Dark mode support
+- Internationalization (i18n)
+- Unit and integration tests
 
-### Key Commands
-```bash
-# Development server
-ng serve
+## Conclusion
 
-# Build for production
-ng build
-
-# Run tests
-ng test
-
-# Code linting
-ng lint
-```
-
-## 📱 Browser Support
-
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-
-## 🎯 Design Validation
-
-### ✅ Proof of Concept Results
-- **✅ Component Architecture**: Successfully implemented modular components
-- **✅ Shared Library**: Popup dialog component is reusable across applications
-- **✅ Data Integration**: Mock data service demonstrates API integration patterns
-- **✅ UI Interactions**: All key interactions work as expected
-- **✅ Responsive Design**: Interface adapts to different screen sizes
-- **✅ Professional Styling**: Modern, clean appearance suitable for enterprise use
-
-## 🔮 Future Enhancements
-
-- [ ] Real backend API integration
-- [ ] Advanced form components
-- [ ] Data filtering and sorting
-- [ ] Pagination for large datasets
-- [ ] Dark mode support
-- [ ] Internationalization (i18n)
-- [ ] Unit and integration tests
-- [ ] CI/CD pipeline
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 🙋‍♀️ Support
-
-For support and questions:
-- Create an issue in this repository
-- Contact: [Your Email]
+This proof of concept successfully demonstrates the feasibility of the proposed UI design and architecture. The Angular framework provides excellent support for building modular, scalable user interfaces that can handle complex rules engine workflows. The component-based architecture ensures maintainability and reusability across the application.
 
 ---
 
-**Made with ❤️ using Angular 18 and TypeScript**
+*This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.*
+
+## Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
